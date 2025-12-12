@@ -134,7 +134,7 @@ function handleSubmit() {
             :full-width="true"
             :options="[
               { label: 'To do', value: 'To do' },
-              { label: ' In progress', value: ' In progress' },
+              { label: 'In progress', value: 'In progress' },
               { label: 'Done', value: 'Done' },
             ]"
           />

@@ -17,7 +17,7 @@ const goHome = () => {
 <template>
   <header class="header">
     <div class="header__container">
-      <div class="header__logo" @click="goHome">MyApp</div>
+      <div class="header__logo" @click="goHome">Management Projects</div>
 
       <nav class="header__nav">
         <router-link class="header__link" to="/">All projects</router-link>
