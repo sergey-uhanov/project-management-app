@@ -1,20 +1,108 @@
-├── public/                # Static assets (favicon, etc.)
+# [Поссылання на розгорнутий проект](https://management-serhii-uhonov.netlify.app/ "Перейти на живу версію")
+<h2 style="color:red;">Увага! Під час першого завантаження бекенд «прокидається» довго. Завантаження може займати кілька хвилин.</h2>
+
+
+# SPA-застосунок "Проекти і завдання"
+
+## Опис проекту
+Цей проект є односторінковим застосунком (SPA) для управління проектами та завданнями всередині цих проектів. Він реалізований з використанням Vue.js 3 (Composition API), TypeScript та Pinia для менеджменту стану. Застосунок включає складні інтерактивні елементи та роботу зі станом.
+
+Основні можливості:
+- Таблиця проектів з сортуванням, фільтрацією та можливістю зміни ширини колонок.
+- Детальна сторінка проекту з таблицею завдань та режимом Kanban.
+- Drag-and-drop для зміни порядку завдань і їх статусів.
+- Форма створення та редагування проектів і завдань із валідацією.
+- Збереження стану між перезавантаженнями (через Pinia та LocalStorage).
+- Реактивне оновлення даних при змінах в інших компонентах.
+- Повідомлення про дії користувача (успішне додавання завдання тощо).
+
+## Функціонал застосунку
+
+### Таблиця проектів
+- Колонки: ID проекту, Назва, Кількість завдань, Статус, Дата створення.
+- Сортування за ID, назвою, кількістю завдань, статусом.
+- Фільтрація за назвою та статусом.
+- Зміна ширини колонок перетягуванням.
+- Модальне вікно для додавання проекту.
+
+### Сторінка проекту (Завдання)
+- Режими відображення: Таблиця та Kanban, синхронізовані між собою.
+- Таблиця завдань:
+    - Колонки: ID, Назва, Виконавець, Статус, Термін виконання.
+    - Сортування та фільтрація.
+    - Drag-and-drop для зміни порядку.
+- Kanban:
+    - Колонки-статуси: To do, In progress, Done.
+    - Перетягування карток всередині та між колонками.
+- Модальні вікна для створення та редагування завдань з валідацією полів.
+
+### Робота з даними
+- Axios для роботи з мок-API.
+- Фейкові ендпоінти (через JSON Server):
+    - `/projects` – CRUD для проектів.
+    - `/tasks` – CRUD для завдань.
+- Зберігання стану через Pinia.
+- Типізація даних з TypeScript.
+
+## Використані бібліотеки
+
+**Залежності:**
+- `vue` – основний фреймворк
+- `vue-router` – маршрутизація
+- `pinia` – менеджмент стану
+- `axios` – HTTP-запити
+- `vuedraggable` – drag-and-drop
+- `@vueuse/core` – корисні Vue-хуки
+- `yup` – валідація форм
+- `scss` – стилізація
+
+**Dev-залежності:**
+- `typescript`, `vite`, `vue-tsc` – інструменти для TypeScript та збірки
+- `eslint`, `prettier` – лінтинг та форматування
+- Плагіни для Vue, ESLint, Vite тощо.
+
+## Локальний запуск
+
+1. Клонувати репозиторій:
+```
+git clone https://github.com/sergey-uhanov/project-management-app
+```
+2.Встановити залежності:
+```
+npm install
+```
+3.Запустити проект у режимі розробки:
+```
+npm run dev
+```
+
+4.Відкрити браузер за адресою:
+```
+http://localhost:5173
+```
+
+<h1 style="color:red;">Увага! Під час першого завантаження бекенд «прокидається» довго. Завантаження може займати кілька хвилин.</h1>
+
+
+
+```text
+├── public/                # Статичні ресурси (favicon тощо)
 ├── src/
-│   ├── api/               # API clients (axios, projects, tasks)
+│   ├── api/               # API-клієнти (axios, projects, tasks)
 │   ├── components/
-│   │   ├── common/        # Reusable UI components (Header, Footer, Buttons, etc.)
-│   │   ├── modals/        # Modal dialogs (Add Project, Add Task)
-│   │   └── projects/      # Project-related components (Kanban board, Task table)
-│   ├── composables/       # Custom composition functions (date formatting, toast notifications)
-│   ├── icons/             # SVG and icon components
-│   ├── layouts/           # Layout components (Default layout)
-│   ├── router/            # Vue Router configuration
-│   ├── stores/            # Pinia stores (project-store, tasks-store)
-│   ├── styles/            # SCSS variables and global styles
-│   ├── types/             # TypeScript type definitions (Project, Task)
-│   └── views/             # Main pages (Project list, Project details)
-├── index.html             # Main HTML entry point
-├── package.json           # Project metadata and dependencies
-├── vite.config.ts         # Vite configuration
-├── tsconfig*.json         # TypeScript configuration files
-└── .gitignore             # Git ignore rules
+│   │   ├── common/        # Багаторазові UI-компоненти (Header, Footer, Buttons тощо)
+│   │   ├── modals/        # Модальні діалоги (Add Project, Add Task)
+│   │   └── projects/      # Компоненти, пов’язані з проектами (Kanban board, Task table)
+│   ├── composables/       # Кастомні composition-функції (форматування дат, toast-повідомлення)
+│   ├── icons/             # SVG та іконкові компоненти
+│   ├── layouts/           # Компоненти макетів (Default layout)
+│   ├── router/            # Конфігурація Vue Router
+│   ├── stores/            # Сховища Pinia (project-store, tasks-store)
+│   ├── styles/            # SCSS-змінні та глобальні стилі
+│   ├── types/             # TypeScript-типи (Project, Task)
+│   └── views/             # Головні сторінки (список проектів, деталі проекту)
+├── index.html             # Головний HTML-вхід
+├── package.json           # Метадані проекту та залежності
+├── vite.config.ts         # Конфігурація Vite
+├── tsconfig*.json         # Конфігураційні файли TypeScript
+└── .gitignore             # Правила Git ignore
